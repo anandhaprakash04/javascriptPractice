@@ -33,6 +33,6 @@ function alphabetPosition(text) {
 
 function getPosition(element) {
   const index = 'abcdefghijklmnopqrstuvwxyz'.split('').indexOf(element);
-  return index < 0 ? '' :  ' ' + (index +1))
+  return index < 0 ? '' :  ' ' + (index +1);
 }
 
