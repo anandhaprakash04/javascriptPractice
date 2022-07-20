@@ -14,15 +14,21 @@ function isSubsequence(str1, str2) {
     while (j < str2.length) {
         console.log(str2[j], str1[i], i, j)
         if (str2[j] === str1[i]) i++;
+        console.log(i, str1.length)
         if (i === str1.length) return true;
         j++;
     }
     return false;
 
 }
+console.log(isSubsequence('singer', 'stinges'));// true
+// console.log(isSubsequence('hello', 'hello world')); // true
+// console.log(isSubsequence('sing', 'sting'));// true
+// console.log(isSubsequence('sing', 'stgaind')) // false                      
+// console.log(isSubsequence('abc', 'abracadabra'));// true
+// console.log(isSubsequence('abc', 'acb')); // false (order matters)
 
-console.log(isSubsequence('hello', 'hello world')); // true
-console.log(isSubsequence('sing', 'sting'));// true</li>
-console.log(isSubsequence('sing', 'stgaind'));// true</li>
-console.log(isSubsequence('abc', 'abracadabra'));// true
-console.log(isSubsequence('abc', 'acb')); // false (order matters)
+
+
+
+

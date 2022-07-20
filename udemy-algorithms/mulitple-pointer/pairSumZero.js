@@ -1,11 +1,8 @@
+/** 
+ * write a function that returns all pairs that sum up to zero in an sorted array 
+ */
 function sumZero(arr) {
-    // start : 0
-    // end: 0 
-    // start + end === 0 return start and end
-    // start + end returns > 0 end--; 
-    // start + end returns < 0 start++
     let [s, e] = [0, arr.length-1];
-
     while(s < e){
         let sum = arr[s]+arr[e];
         if( sum=== 0){

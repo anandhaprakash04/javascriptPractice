@@ -14,6 +14,9 @@ function maxSubArraySum(){
     for(let i=num;i< arr.length -1 ;i++){
         // console.log('temp',i, tempSum);
         // console.log('max',i, maxSum);
+        /**
+         * Here subtracting the ith element from tempSum and adding the nth item
+         */
         tempSum = tempSum + arr[i] - arr[i-num];
         if(tempSum > maxSum){
             maxSum = tempSum;

@@ -11,3 +11,20 @@ function areThereDuplicates(){
 }
 
 console.log(areThereDuplicates(1, 2,3));
+
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+ var findDuplicates = function(nums) {
+    counter = {};
+    result = [];
+    nums.forEach(num => {
+        counter[num] = (counter[num] || 0) +1 
+        if(counter[num] > 1){
+            result.push(num);
+        }
+    });
+    console.log(result)
+};

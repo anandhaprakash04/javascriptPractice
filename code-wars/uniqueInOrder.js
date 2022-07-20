@@ -5,7 +5,7 @@ function uniqueInOrder(iterable){
             output.push(v);
         }
     }
-    return output;
+    return output.join('');
   }
 
   console.log(uniqueInOrder('AAAABBBCCDAABBB'));
