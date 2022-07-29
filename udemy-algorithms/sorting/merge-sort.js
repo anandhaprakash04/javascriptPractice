@@ -27,14 +27,14 @@ function merge(a, b){
             j++;
         }
     }
-     while(i < a.length){
-        merged.push(a[i])
-        i++;
-     }
-     while(j < b.length){
-        merged.push(b[j])
-        j++;
-     }
+    //  while(i < a.length){
+    //     merged.push(a[i])
+    //     i++;
+    //  }
+    //  while(j < b.length){
+    //     merged.push(b[j])
+    //     j++;
+    //  }
     // console.log(merged);
-    return merged;
+    return [...merged, ...a.slice(i), ...b.slice(j)];
 }

@@ -1,7 +1,7 @@
 
 
 // insertionSort([2,1,35,3,6,6,22,3311,1552,21]);
-insertionSort([4,3,2,1,]);
+// insertionSort([4,3,2,1]);
 
 function insertionSort(arr){
     console.log(arr)
@@ -20,4 +20,20 @@ function insertionSort(arr){
         console.log('arr= ', arr);
     }
     console.log(arr)
+}
+
+insertionSortYt([4,3,1,345,5342,123,4123,123,12,412,4,2,1]);
+
+function insertionSortYt(array){
+
+    for(let i=1; i< array.length; i++){
+        for(let j = i; j >= 0; j--){
+            if(array[j] < array[j-1]){
+                [array[j], array[j-1]] = [array[j-1], array[j]]
+            } else {
+                break;
+            }
+        }
+    }
+    console.log(array);
 }
