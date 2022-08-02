@@ -71,10 +71,9 @@ class Node{
           return temp;
       }
   
-      /*removes the first node from the beginning */
+      /*adds the first node from the beginning */
       unshift(val){
-          if(!this.head ) return undefined;
-          if(this.length === 1){
+          if(this.length === 0){
               return this.push(val);
           }
           let newNode = new Node(val);
@@ -86,7 +85,7 @@ class Node{
       }
   
       /* get the node by index*/
-      get(index){
+      lessEfficientget(index){
           if(index < 0 || index >= this.length){
               return undefined
           } 
@@ -100,6 +99,31 @@ class Node{
           }
           return current;
       }
+
+      get(index){
+        if(index < 0 || index >= this.length){
+            return undefined
+        } 
+        if(index === 0) return this.head;
+        if(index === this.length-1) return this.tail;
+        let i, current;
+        if(index <= this.length/2){
+            current = this.head;
+            i = 0;
+            while(i !== index){
+                current = current.next;
+                i++
+            }
+        } else{
+            current = this.tail;
+            i = this.length;
+            while(i !== index){
+                current = current.prev;
+                i--
+            }
+        }        
+        return current;
+      }
   
       /* set a value for the given index*/
       set(index, val){
@@ -110,36 +134,35 @@ class Node{
           return node;
       }
   
-      isIndexValid(index){
+      isIndexInValid(index){
+            console.log(index, this.length);
           return index < 0 || index >= this.length
       }
   
       /*Insert a new node in the given index */
       insert(index, val){
-          if(!this.isIndexValid(index)) return undefined;
+          if(this.isIndexInValid(index)) return undefined;
           if(index === 0) return this.unshift(val);
           if(index === this.length-1) return this.push(val);
           const newNode = new Node(val);
-          const setNode = this.get(index);
-          let temp= setNode;
-          temp.prev.next = newNode;
-          newNode.next = temp;
-          newNode.prev = temp.prev;
-          temp.prev = newNode;
+          const indexNode = this.get(index);
+          indexNode.prev.next = newNode;
+          newNode.next = indexNode;
+          newNode.prev = indexNode.prev;
+          indexNode.prev = newNode;
           this.length++;
           return true;         
       }
   
       /*removes a new node in the given index */
       remove(index){
-          if(this.isIndexValid(index)) return undefined;
+          if(this.isIndexInValid(index)) return undefined;
           if(index === 0) return this.shift();
           if(index === this.length-1) return this.pop();
-          const setNode = this.get(index);
-          let temp= setNode;
-          temp.prev.next = temp.next;
-          temp.next.prev = temp.prev;
-          [temp.next, temp.prev] = [null, null];
+          const indexNode = this.get(index);
+          indexNode.prev.next = indexNode.next;
+          indexNode.next.prev = indexNode.prev;
+          [indexNode.next, indexNode.prev] = [null, null];
           this.length--;
           return true;      
       }
